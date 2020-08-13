@@ -1,4 +1,4 @@
-pragma solidity >=0.4.22 <0.7.0;
+pragma solidity ^0.5.1;
 
 /**
      * Thera.Foundation Emerald Smart Contract - Suite of foundings to develop the Amazon.
