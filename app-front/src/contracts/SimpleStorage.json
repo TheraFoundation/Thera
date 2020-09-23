@@ -45,15 +45,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"}],\"name\":\"StorageSet\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"storedData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/src/Thera/contracts/SimpleStorage.sol\":\"SimpleStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/src/Thera/contracts/SimpleStorage.sol\":{\"keccak256\":\"0x4cd8bdf74b0df5de72173dae1e2ac7bf93b75b0fbbd208ab8981cc29666a3b10\",\"urls\":[\"bzz-raw://52a3d655a47f21c997f1b831f19d9d7e72ced6f831e62ce1648c6353100fffe0\",\"dweb:/ipfs/Qma4pjNpY22kWx7maE1JTdCibt23C5ojZ1yRgJDChkxTRk\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061012b806100206000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80632a1afcd914603757806360fe47b1146053575b600080fd5b603d607e565b6040518082815260200191505060405180910390f35b607c60048036036020811015606757600080fd5b81019080803590602001909291905050506084565b005b60005481565b806000819055507f60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a66040518080602001828103825260198152602001807f446174612073746f726564207375636365737366756c6c79210000000000000081525060200191505060405180910390a15056fea265627a7a72315820f7d2042e710c82f27d245032262de7716bcbbe8f9c4aa7d601d71f11900d19e464736f6c63430005100032",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80632a1afcd914603757806360fe47b1146053575b600080fd5b603d607e565b6040518082815260200191505060405180910390f35b607c60048036036020811015606757600080fd5b81019080803590602001909291905050506084565b005b60005481565b806000819055507f60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a66040518080602001828103825260198152602001807f446174612073746f726564207375636365737366756c6c79210000000000000081525060200191505060405180910390a15056fea265627a7a72315820f7d2042e710c82f27d245032262de7716bcbbe8f9c4aa7d601d71f11900d19e464736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"}],\"name\":\"StorageSet\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"storedData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/derek/Thera/contracts/SimpleStorage.sol\":\"SimpleStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/derek/Thera/contracts/SimpleStorage.sol\":{\"keccak256\":\"0x4cd8bdf74b0df5de72173dae1e2ac7bf93b75b0fbbd208ab8981cc29666a3b10\",\"urls\":[\"bzz-raw://52a3d655a47f21c997f1b831f19d9d7e72ced6f831e62ce1648c6353100fffe0\",\"dweb:/ipfs/Qma4pjNpY22kWx7maE1JTdCibt23C5ojZ1yRgJDChkxTRk\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061012b806100206000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80632a1afcd914603757806360fe47b1146053575b600080fd5b603d607e565b6040518082815260200191505060405180910390f35b607c60048036036020811015606757600080fd5b81019080803590602001909291905050506084565b005b60005481565b806000819055507f60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a66040518080602001828103825260198152602001807f446174612073746f726564207375636365737366756c6c79210000000000000081525060200191505060405180910390a15056fea265627a7a72315820adbdcf21105cbfc00add04dabaa9df1ea1af9738c2d9296c5471acc80dd4630664736f6c63430005100032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80632a1afcd914603757806360fe47b1146053575b600080fd5b603d607e565b6040518082815260200191505060405180910390f35b607c60048036036020811015606757600080fd5b81019080803590602001909291905050506084565b005b60005481565b806000819055507f60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a66040518080602001828103825260198152602001807f446174612073746f726564207375636365737366756c6c79210000000000000081525060200191505060405180910390a15056fea265627a7a72315820adbdcf21105cbfc00add04dabaa9df1ea1af9738c2d9296c5471acc80dd4630664736f6c63430005100032",
   "sourceMap": "66:220:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:220:2;;;;;;;",
   "deployedSourceMap": "66:220:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:220:2;;;;;;;;;;;;;;;;;;;;;;;;135:25;;;:::i;:::-;;;;;;;;;;;;;;;;;;;167:117;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;167:117:2;;;;;;;;;;;;;;;;;:::i;:::-;;135:25;;;;:::o;167:117::-;221:1;208:10;:14;;;;238:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;167:117;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <0.7.0;\n\ncontract SimpleStorage {\n    event StorageSet(string _message);\n\n    uint256 public storedData;\n\n    function set(uint256 x) public {\n        storedData = x;\n\n        emit StorageSet(\"Data stored successfully!\");\n    }\n}\n",
-  "sourcePath": "/src/Thera/contracts/SimpleStorage.sol",
+  "sourcePath": "/Users/derek/Thera/contracts/SimpleStorage.sol",
   "ast": {
-    "absolutePath": "/src/Thera/contracts/SimpleStorage.sol",
+    "absolutePath": "/Users/derek/Thera/contracts/SimpleStorage.sol",
     "exportedSymbols": {
       "SimpleStorage": [
         188
@@ -330,7 +330,7 @@
     "src": "32:255:2"
   },
   "legacyAST": {
-    "absolutePath": "/src/Thera/contracts/SimpleStorage.sol",
+    "absolutePath": "/Users/derek/Thera/contracts/SimpleStorage.sol",
     "exportedSymbols": {
       "SimpleStorage": [
         188
@@ -628,12 +628,12 @@
         }
       },
       "links": {},
-      "address": "0x5fcEFD8C20A4330e6dD40465e9dddBbF7787c4E7",
-      "transactionHash": "0xcf7ee26fa229789d7cadb86372cebe0d68fab5859b2d1949a71d935cc877a2f2"
+      "address": "0x10E82898CC8283Ae08EC1bb1aaf9ACe6d820Bf5A",
+      "transactionHash": "0x72ff571d9b04f9f4ad9b8f3acd565fa7f8eb7df48a081e9b49f9c0daddd5469e"
     }
   },
-  "schemaVersion": "3.2.3",
-  "updatedAt": "2020-09-21T15:19:37.328Z",
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-09-23T21:21:02.546Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

@@ -31,12 +31,7 @@ const data = [
     label: 'menu.planttree',
     to: '/app/blank-page',
   },
-  {
-    id: 'plantideas',
-    icon: 'iconsminds-seed',
-    label: 'menu.planttree',
-    to: '/app/blank-page',
-  },
+
   {
     id: 'community',
     icon: 'simple-icon-envelope-letter',

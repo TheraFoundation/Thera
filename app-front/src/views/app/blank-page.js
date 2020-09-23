@@ -12,7 +12,7 @@ const BlankPage = ({ match }) => {
     <>
       <Row>
         <Colxx xxs="12">
-          <Breadcrumb heading="menu.blank-page" match={match} />
+          <Breadcrumb heading="Plant Trees" match={match} />
           <Separator className="mb-5" />
         </Colxx>
       </Row>
