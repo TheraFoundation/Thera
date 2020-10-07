@@ -3,8 +3,7 @@ const path = require("path");
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 
-MNEMONIC="famous voice almost lyrics sell trouble verify drift catalog spell tissue found";
-
+let mnemonic = process.env.MNEMONIC;
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -19,7 +18,7 @@ module.exports = {
     mainnet: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(MNEMONIC, "https://mainnet.infura.io/v3/fd39f71cc4d14deb8e341de44eb13245",
+        new HDWalletProvider(mnemonic, "https://mainnet.infura.io/v3/fd39f71cc4d14deb8e341de44eb13245",
             0, 1, true, "m/44'/1'/0'/0/"
         ),
       network_id: '1',
@@ -32,7 +31,7 @@ module.exports = {
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(MNEMONIC, "https://ropsten.infura.io/v3/fd39f71cc4d14deb8e341de44eb13245",
+        new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/fd39f71cc4d14deb8e341de44eb13245",
             0, 1, true, "m/44'/60'/0'/0/"
         ),
       network_id: '3',
