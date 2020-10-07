@@ -52870,12 +52870,13 @@
         }
       },
       "links": {},
-      "address": "0x7b3Fa8C7cfa80Bde28A32B126951E2aC94C43add",
-      "transactionHash": "0x4cd6ee007e7fb0dcc0f37cb5b87852cabf4c9a011486695af790d3cfe8e84cba"
+      "address": "0x1a5841fbeA46C77f0561ca227130f89068C30342",
+      "transactionHash": "0xfdf40e33453564479dc9f8059091f871446eb45d6bffa9127bfcc1538829227d"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-07T20:34:54.556Z",
+  "updatedAt": "2020-10-07T23:07:37.612Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

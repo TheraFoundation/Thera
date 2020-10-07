@@ -53413,12 +53413,13 @@
         }
       },
       "links": {},
-      "address": "0x33fA3a331Cca6D1A66170D4e405EDF590e07e78F",
-      "transactionHash": "0x415092b4e3349ed5cf858e57f1fba0ef5dc1b45cb0dc7b05d5ee21f37bd1aae6"
+      "address": "0xdc0FF9103EB5E5CdD5C69d756020E2226cA4B54f",
+      "transactionHash": "0xf3ecd9adec3ed2f35c90e6a620dc00d5e9cb2007ffd8b1c54cc9894d233bd737"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-07T20:34:54.506Z",
+  "updatedAt": "2020-10-07T23:07:37.259Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "isOwner()": {
