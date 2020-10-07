@@ -10,6 +10,7 @@ import drizzleOptions from "./drizzleOptions.js";
 
 const drizzle = new Drizzle(drizzleOptions);
 
+
 const App = React.lazy(() => import(/* webpackChunkName: "App" */ './App'));
 
 
