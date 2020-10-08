@@ -29,6 +29,20 @@ module.exports = {
       url: "https://sandbox.truffleteams.com/eb7fdd7f-6a9c-42a0-8068-b7a3847024e9",
       network_id: '1',
     },
+    goerli: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, 'https://goerli.infura.io/v3/' + infura)
+      },
+      network_id: '5', // eslint-disable-line camelcase
+      gas: 4465030,
+      gasPrice: 10000000000,
+    },
+    test: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/");
+      },
+      network_id: '*',
+    },
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
