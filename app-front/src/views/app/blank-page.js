@@ -18,6 +18,7 @@ const BlankPage = ({ match }) => {
       </Row>
       <Row>
         <Colxx xxs="12" className="mb-4">
+          <button class="enableEthereumButton">Enable Ethereum</button>
           <Drizzle />
         </Colxx>
       </Row>

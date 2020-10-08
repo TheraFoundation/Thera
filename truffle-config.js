@@ -4,7 +4,7 @@ const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 console.log(process.env);
 
-
+let infura = process.env.INFURA_API_KEY
 let mnemonic = process.env.MNEMONIC;
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
     mainnet: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(mnemonic, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY,
+        new HDWalletProvider(mnemonic, "https://mainnet.infura.io/v3/" + infura,
         ),
       network_id: '1',
     },
@@ -32,7 +32,7 @@ module.exports = {
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY,
+        new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/" + infura,
             0, 1, true, "m/44'/60'/0'/0/"
         ),
       network_id: '3',
