@@ -2,6 +2,7 @@ const SimpleStorage = artifacts.require("SimpleStorage");
 const TutorialToken = artifacts.require("TutorialToken");
 const ComplexStorage = artifacts.require("ComplexStorage");
 const Thera = artifacts.require("Thera");
+const TheraAether = artifacts.require("TheraAether");
 const TheraSeed = artifacts.require("TheraSeed");
 const TheraMarket = artifacts.require("TheraMarket");
 const TheraLaw = artifacts.require("TheraLaw");
@@ -19,6 +20,10 @@ const TheraMining = artifacts.require("TheraMining");
 
 //Thanks Nick loved your way :D
 const configurations = [
+  {
+    contractName: "TheraAether",
+    walletAddress: "0xbA1889f75B6B9E28539bb874fd1d29A9f1eCe05b"
+  },
   {
     contractName: "TheraSeed",
     walletAddress: "0x47e4e4Ad3B0599c92E93E6BE09B75DDF141ef9D4"

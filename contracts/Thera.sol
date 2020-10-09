@@ -6,7 +6,7 @@
         * Each Thera reforests a tree among 2000 species of selected breed, some harness shadow others enroot water, others help life some bring bees.
         * To Receive Theras, Choose a TheraFounding of your Choose. Each TheraFounding also develops the bestest of technology in the Amazon Region.
         * All TheraFounding projects depend on each other to co-exist and co-evolve, TheraLaw helps connect TheraSpace with TheraTech, all Co-Developing.
-        * There will be a total of 16 TheraFoundings, each will be Unpaused as team and infrastructure grow.
+        * There will be a total of 13 TheraFoundings, each will be Unpaused as team and infrastructure grow.
         * 
         * 
         * 
@@ -542,6 +542,13 @@
         ERC20Detailed("Thera", "Thera", DECIMALS)  {
         }
     }
+    //Minter Minting Contract seeding Theras for the purpose of developing Drone technology capable of automated reforestations.
+    contract TheraAether is TheraFounding {
+        uint256 internal constant RATE = 39060000000000000;
+        
+        constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
+        }
+    }
 
     //Minter Minting Contract seeding Theras for the purpose of developing Drone technology capable of automated reforestations.
     contract TheraSeed is TheraFounding {
@@ -629,10 +636,4 @@
         constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
         }
     }
-    //Minter Minting Contract seeding Theras for the purpose of developing Unique Niobium like studies to protect earths resources through use of metal mixing and saving.
-    contract TheraMining is TheraFounding {
-        uint256 internal constant RATE = 39060000000000000;
-        
-        constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-        }
-    }
+   
