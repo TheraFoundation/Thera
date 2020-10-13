@@ -129,7 +129,7 @@ export default ({ drizzle, drizzleState }) => {
         drizzle={drizzle}
         drizzleState={drizzleState} 
         contract="TheraSeed" 
-        method="buyTokens"
+        method="_transfer"
         methodArgs={[drizzleState.accounts[0]]}
         sendArgs={{ value: Web3.utils.toWei("1", "ether")}}
          />

@@ -1,6 +1,4 @@
 const SimpleStorage = artifacts.require("SimpleStorage");
-const TutorialToken = artifacts.require("TutorialToken");
-const ComplexStorage = artifacts.require("ComplexStorage");
 const Thera = artifacts.require("Thera");
 const TheraAether = artifacts.require("TheraAether");
 const TheraSeed = artifacts.require("TheraSeed");
@@ -15,7 +13,6 @@ const TheraEnergy = artifacts.require("TheraEnergy");
 const TheraGov = artifacts.require("TheraGov"); 
 const TheraBioTech = artifacts.require("TheraBioTech");
 const TheraSpace = artifacts.require("TheraSpace");
-const TheraMining = artifacts.require("TheraMining");
 
 
 //Thanks Nick loved your way :D
@@ -71,10 +68,6 @@ const configurations = [
   {
     contractName: "TheraSpace",
     walletAddress: "0xc709B28477C5a203fdcF187e7eCc9c17543EEdD1"
-  },
-  {
-    contractName: "TheraMining",
-    walletAddress: "0x86D795b6760b93784Eb6D5F8846A7154DD48AFe0"
   }
 
 ]
@@ -107,9 +100,8 @@ module.exports = async function(deployer, network, accounts) {
     const instance = await Contract.deployed();
 
     await thera.addMinter(instance.address);
+    
   }
   await deployer.deploy(SimpleStorage);
-  await deployer.deploy(TutorialToken);
-  await deployer.deploy(ComplexStorage);
 
 };

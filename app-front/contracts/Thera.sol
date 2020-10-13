@@ -1,8 +1,6 @@
-/**
- *Submitted for verification at Etherscan.io on 2020-09-18
-*/
+// SPDX-License-Identifier: MIT
 
-pragma solidity ^0.5.1;
+pragma solidity 0.6.6;
 
 /**
      * Thera.Foundation Emerald Smart Contract - Suite of foundings to develop the Amazon.
@@ -10,7 +8,7 @@ pragma solidity ^0.5.1;
      * Each Thera reforests a tree among 2000 species of selected breed, some harness shadow others enroot water, others help life some bring bees.
      * To Receive Theras, Choose a TheraFounding of your Choose. Each TheraFounding also develops the bestest of technology in the Amazon Region.
      * All TheraFounding projects depend on each other to co-exist and co-evolve, TheraLaw helps connect TheraSpace with TheraTech, all Co-Developing.
-     * There will be a total of 16 TheraFoundings, each will be Unpaused as team and infrastructure grow.
+     * There will be a total of 13 TheraFoundings, each will be Unpaused as team and infrastructure grow.
      * 
      * 
      * 
@@ -18,6 +16,7 @@ pragma solidity ^0.5.1;
 
 
 //All Purpose Library to help with the math equations
+
 library Math {
     function max(uint256 a, uint256 b) internal pure returns (uint256) {
         return a >= b ? a : b;
@@ -137,31 +136,31 @@ contract ERC20 is IERC20 {
     mapping (address => uint256) private _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
     uint256 private _totalSupply;
-    uint256 private constant MAXCAP = 1000000 * (10 ** uint256(18));
+    uint256 private constant MAXCAP = 10000000 * (10 ** uint256(18));
 
-    function totalSupply() public view returns (uint256) {
+    function totalSupply() override public view returns (uint256) {
         return _totalSupply;
     }
 
-    function balanceOf(address account) public view returns (uint256) {
+    function balanceOf(address account) override public view returns (uint256) {
         return _balances[account];
     }
 
-    function transfer(address recipient, uint256 amount) public returns (bool) {
+    function transfer(address recipient, uint256 amount) override public returns (bool) {
         _transfer(msg.sender, recipient, amount);
         return true;
     }
 
-    function allowance(address owner, address spender) public view returns (uint256) {
+    function allowance(address owner, address spender) override public view returns (uint256) {
         return _allowances[owner][spender];
     }
 
-    function approve(address spender, uint256 value) public returns (bool) {
+    function approve(address spender, uint256 value) override public returns (bool) {
         _approve(msg.sender, spender, value);
         return true;
     }
 
-    function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {
+    function transferFrom(address sender, address recipient, uint256 amount) override public returns (bool) {
         _transfer(sender, recipient, amount);
         _approve(sender, msg.sender, _allowances[sender][msg.sender].sub(amount));
         return true;
@@ -206,7 +205,7 @@ contract ERC20 is IERC20 {
 }
 
 //Token Details with name, symbol and Decimals
-contract ERC20Detailed is IERC20 {
+abstract contract ERC20Detailed is IERC20 {
     string private _name;
     string private _symbol;
     uint8 private _decimals;
@@ -447,8 +446,8 @@ contract Crowdsale is ReentrancyGuard, Pausable {
         _token = token;
     }
 
-    function () external payable {
-        buyTokens(msg.sender, msg.value);
+   receive () external payable {
+       this.buyTokens{value: msg.value}(msg.sender);
     }
 
     function token() public view returns (IERC20) {
@@ -467,8 +466,9 @@ contract Crowdsale is ReentrancyGuard, Pausable {
         return _weiRaised;
     }
 
-    function buyTokens(address beneficiary, uint256 weiAmount) public nonReentrant whenNotPaused payable {
-         weiAmount = msg.value;
+    function buyTokens(address beneficiary) public nonReentrant whenNotPaused payable {
+        require(beneficiary != address(0), "Crowdsale: beneficiary is the zero address");
+        uint256 weiAmount = msg.value;
         _preValidatePurchase(beneficiary, weiAmount);
 
         // calculate token amount to be created
@@ -491,11 +491,11 @@ contract Crowdsale is ReentrancyGuard, Pausable {
         require(weiAmount != 0, "Crowdsale: weiAmount is 0");
     }
 
-    function _postValidatePurchase( address beneficiary, uint256 weiAmount) internal view {
+    function _postValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
         // solhint-disable-previous-line no-empty-blocks
     }
 
-    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {
+    function _deliverTokens(address beneficiary, uint256 tokenAmount) virtual internal {
         _token.safeTransfer(beneficiary, tokenAmount);
     }
 
@@ -515,8 +515,8 @@ contract Crowdsale is ReentrancyGuard, Pausable {
         _wallet.transfer(msg.value);
     }
 }
-contract TheraFounding is Crowdsale {
-    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {
+abstract contract TheraFounding is Crowdsale {
+    function _deliverTokens(address beneficiary, uint256 tokenAmount) override internal {
         // Potentially dangerous assumption about the type of the token.
         require(
             TheraSeeding(address(token())).mint(beneficiary, tokenAmount),
@@ -529,7 +529,7 @@ contract TheraFounding is Crowdsale {
 contract Thera is ERC20, ERC20Detailed,TheraSeeding, Ownable, Pausable  {
     uint8 internal constant DECIMALS = 18;
 
-    function() external payable {
+    receive() external payable {
     }
     
     function getBalance() public view returns(uint256) {
@@ -543,32 +543,47 @@ contract Thera is ERC20, ERC20Detailed,TheraSeeding, Ownable, Pausable  {
     constructor ()  public
      ERC20Detailed("Thera", "Thera", DECIMALS)  {
     }
+    mapping (address => uint) public nonces;
+    
 }
 //Minter Minting Contract seeding Theras for the purpose of developing Drone technology capable of automated reforestations.
-contract TheraSeed is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+contract TheraAether is TheraFounding {
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing Software and program like dapps to enhance all TheraFoundings.
-contract TheraDev is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+//Minter Minting Contract seeding Theras for the purpose of developing Drone technology capable of automated reforestations.
+contract TheraSeed is TheraFounding {
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
 //Minter Minting Contract seeding Theras for the purpose of developing blockchain like market selling Amazonian products.
 contract TheraMarket is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-
+//Minter Minting Contract seeding Theras for the purpose of developing Impactful Mega infrastructures in contact with nature in a sustainable way.
+contract TheraLaw is TheraFounding {
+    uint256 internal constant RATE = 39060000000000000;
+    
+    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
+    }
+}
+//Minter Minting Contract seeding Theras for the purpose of developing Software and program like dapps to enhance all TheraFoundings.
+contract TheraDev is TheraFounding {
+    uint256 internal constant RATE = 39060000000000000;
+    
+    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
+    }
+}
 //Minter Minting Contract seeding Theras for the purpose of developing Disruptive technology and uniting multi-patent technologies for genesis like creations.
 contract TheraTech is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
@@ -576,35 +591,29 @@ contract TheraTech is TheraFounding {
 
 //Minter Minting Contract seeding Theras for the purpose of developing Impactful Mega infrastructures in contact with nature in a sustainable way.
 contract TheraConstruction is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
 //Minter Minting Contract seeding Theras for the purpose of developing Economical break through in the northern region of South America main basis of the the amazon Rainforest.
 contract TheraEconomy is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing Impactful Mega infrastructures in contact with nature in a sustainable way.
-contract TheraLaw is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+//Minter Minting Contract seeding Theras for the purpose of developing art, music,events, festivals and entertainment like business to expand marketing and visiability.
+contract TheraArt is TheraFounding {
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
+
 //Minter Minting Contract seeding Theras for the purpose of developing 0 point renewable Energy in the Amazon.
 contract TheraEnergy is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract seeding Theras for the purpose of developing Unique beauty products with flowers, smells and exotic fruits from the Amazon
-contract TheraBeauty is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
@@ -616,45 +625,25 @@ contract TheraGov is TheraFounding {
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing fiber optic connections around the Amazon with the evolution of the people in focus.
-contract TheraNet is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
 //Minter Minting Contract seeding Theras for the purpose of developing Medicine and BioTech To cure the world from diseases with the rich Natural resources from the Amazon
 contract TheraBioTech is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract seeding Theras for the purpose of developing art, music,events, festivals and entertainment like business to expand marketing and visiability.
-contract TheraArt is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract founding Theras for the purpose of developing robotic technology to further take man and machine together. 
-contract TheraRobotic is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
 //Minter Minting Contract seeding Theras for the purpose of developing space technology in the Amazon Equatoria Line with universal launches in perspective and fuel saving
 contract TheraSpace is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
 //Minter Minting Contract seeding Theras for the purpose of developing Unique Niobium like studies to protect earths resources through use of metal mixing and saving.
 contract TheraMining is TheraFounding {
-    uint256 internal constant RATE = 29060000000000000;
+    uint256 internal constant RATE = 39060000000000000;
     
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
+
