@@ -3,15 +3,9 @@ const Thera = artifacts.require("Thera");
 const TheraAether = artifacts.require("TheraAether");
 const TheraSeed = artifacts.require("TheraSeed");
 const TheraMarket = artifacts.require("TheraMarket");
-const TheraLaw = artifacts.require("TheraLaw");
 const TheraDev = artifacts.require("TheraDev");
 const TheraTech = artifacts.require("TheraTech");
-const TheraConstruction = artifacts.require("TheraConstruction");
-const TheraArt = artifacts.require("TheraArt");
-const TheraEconomy = artifacts.require("TheraEconomy");
 const TheraEnergy = artifacts.require("TheraEnergy");
-const TheraGov = artifacts.require("TheraGov"); 
-const TheraBioTech = artifacts.require("TheraBioTech");
 const TheraSpace = artifacts.require("TheraSpace");
 
 
@@ -30,10 +24,6 @@ const configurations = [
     walletAddress: "0x0e703bd4358d5974EEc5c1e47E0c5A154440Cd5A"
   },
   {
-    contractName: "TheraLaw",
-    walletAddress: "0xD27a92D6C9A5408BE1bB5414e3bfe215CC9589b4"
-  },
-  {
     contractName: "TheraDev",
     walletAddress: "0xeE01794f780dF599eAA7A673A40C4b5C0EC8c34F"
   },
@@ -42,28 +32,8 @@ const configurations = [
     walletAddress: "0x6b784DeCD0AA3bF6f86Cc0648AE6d6a1078E4E6d"
   },
   {
-    contractName: "TheraConstruction",
-    walletAddress: "0x0f0954C49da09ed8cc9d9c64631d1126226F6C8B"
-  },
-  {
-    contractName: "TheraArt",
-    walletAddress: "0x5870B5c970D8709745fd62b7012164262ACe8149"
-  },
-  {
-    contractName: "TheraEconomy",
-    walletAddress: "0x951b9C563bE189D20aa51f7A35DCA38964c8f98B"
-  },
-  {
     contractName: "TheraEnergy",
     walletAddress: "0x7FA6C2462bD7E29C449D60Ef31868bb4dE38C72F"
-  },
-  {
-    contractName: "TheraGov",
-    walletAddress: "0x1FB7E080f295773A75E5b7eBDf7E05CE75e59Dfb"
-  },
-  {
-    contractName: "TheraBioTech",
-    walletAddress: "0xEaDb85d2B8f2CcC044A2F68fb35d36246f860256"
   },
   {
     contractName: "TheraSpace",

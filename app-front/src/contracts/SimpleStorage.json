@@ -631,6 +631,46 @@
     "version": "0.6.6+commit.6c089d02.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_message",
+              "type": "string"
+            }
+          ],
+          "name": "StorageSet",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4cab9032D64B593cD9F87aE1B8bE5921FB311c4f",
+      "transactionHash": "0x6af23f07a31721054767213d9edd607229578d3d307c4dfbb977ba2eb5d9eb94"
+    },
+    "4": {
+      "events": {
+        "0x60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_message",
+              "type": "string"
+            }
+          ],
+          "name": "StorageSet",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x5C6D37677ba45135793382086754b05f94c85b60",
+      "transactionHash": "0x703f480a0f8260a9e00a0526b73f2102796e7c642e93bdf6d1a66211f9546fca"
+    },
     "5777": {
       "events": {
         "0x60cdc157ca4737a5d39a0e107532616e7bf6946e615228812c7f9bc9f81797a6": {
@@ -648,12 +688,12 @@
         }
       },
       "links": {},
-      "address": "0x10E82898CC8283Ae08EC1bb1aaf9ACe6d820Bf5A",
-      "transactionHash": "0xcbe1b81053e5d2e2316d51def2090ac323211462735fc919517114d05e4cadd6"
+      "address": "0x745EB2932a74f3289c2552EefDC05ba9F62621C0",
+      "transactionHash": "0x508ad406f966c7e0ef1ae03d7b8d1bb7e85df9d53622afa93b6f62997d10ae48"
     }
   },
-  "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-13T23:01:51.347Z",
+  "schemaVersion": "3.3.0",
+  "updatedAt": "2020-10-23T13:29:14.948Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

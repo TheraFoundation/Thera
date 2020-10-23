@@ -7,8 +7,8 @@ pragma solidity 0.6.6;
      * 
      * Each Thera reforests a tree among 2000 species of selected breed, some harness shadow others enroot water, others help life some bring bees.
      * To Receive Theras, Choose a TheraFounding of your Choose. Each TheraFounding also develops the bestest of technology in the Amazon Region.
-     * All TheraFounding projects depend on each other to co-exist and co-evolve, TheraLaw helps connect TheraSpace with TheraTech, all Co-Developing.
-     * There will be a total of 13 TheraFoundings, each will be Unpaused as team and infrastructure grow.
+     * All TheraFounding projects depend on each other to co-exist and co-evolve.
+     * There will be a total of 7 TheraFoundings, each will be Unpaused as team and infrastructure grow.
      * 
      * 
      * 
@@ -541,7 +541,7 @@ contract Thera is ERC20, ERC20Detailed,TheraSeeding, Ownable, Pausable  {
     }
     
     constructor ()  public
-     ERC20Detailed("Thera", "Thera", DECIMALS)  {
+     ERC20Detailed("TREE", "TREE", DECIMALS)  {
     }
 }
 //Minter Minting Contract seeding Theras for the purpose of developing Drone technology capable of automated reforestations.
@@ -565,13 +565,7 @@ contract TheraMarket is TheraFounding {
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing Impactful Mega infrastructures in contact with nature in a sustainable way.
-contract TheraLaw is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
+
 //Minter Minting Contract seeding Theras for the purpose of developing Software and program like dapps to enhance all TheraFoundings.
 contract TheraDev is TheraFounding {
     uint256 internal constant RATE = 39060000000000000;
@@ -587,28 +581,6 @@ contract TheraTech is TheraFounding {
     }
 }
 
-//Minter Minting Contract seeding Theras for the purpose of developing Impactful Mega infrastructures in contact with nature in a sustainable way.
-contract TheraConstruction is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract seeding Theras for the purpose of developing Economical break through in the northern region of South America main basis of the the amazon Rainforest.
-contract TheraEconomy is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract seeding Theras for the purpose of developing art, music,events, festivals and entertainment like business to expand marketing and visiability.
-contract TheraArt is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-
 //Minter Minting Contract seeding Theras for the purpose of developing 0 point renewable Energy in the Amazon.
 contract TheraEnergy is TheraFounding {
     uint256 internal constant RATE = 39060000000000000;
@@ -616,20 +588,7 @@ contract TheraEnergy is TheraFounding {
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing better connection among humanitarian crisis, ONGs and Diplomatic Affairs.
-contract TheraGov is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-//Minter Minting Contract seeding Theras for the purpose of developing Medicine and BioTech To cure the world from diseases with the rich Natural resources from the Amazon
-contract TheraBioTech is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
+
 //Minter Minting Contract seeding Theras for the purpose of developing space technology in the Amazon Equatoria Line with universal launches in perspective and fuel saving
 contract TheraSpace is TheraFounding {
     uint256 internal constant RATE = 39060000000000000;
@@ -637,11 +596,3 @@ contract TheraSpace is TheraFounding {
     constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
     }
 }
-//Minter Minting Contract seeding Theras for the purpose of developing Unique Niobium like studies to protect earths resources through use of metal mixing and saving.
-contract TheraMining is TheraFounding {
-    uint256 internal constant RATE = 39060000000000000;
-    
-    constructor(address payable Wallet, address payable Token) public Crowdsale(RATE, Wallet, TheraSeeding(Token)) {
-    }
-}
-
