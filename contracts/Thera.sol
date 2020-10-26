@@ -540,6 +540,8 @@ contract Thera is ERC20, ERC20Detailed,TheraSeeding, Ownable, Pausable  {
         owner().transfer(getBalance());
     }
     
+    string public Mission = "Restabilize Earth, create a better future for all mankind";
+    
     constructor ()  public
      ERC20Detailed("TREE", "TREE", DECIMALS)  {
     }
